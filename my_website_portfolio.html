@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awujia Janet Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --text: #333;
+            --text-light: #6c757d;
+            --ndejje-blue: #003366;
+            --ndejje-yellow: #FFCC00;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--ndejje-blue) 0%, var(--primary) 100%);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--ndejje-yellow);
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--ndejje-yellow);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--ndejje-yellow);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+			background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/photo.jpg') no-repeat center/cover;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+		.hero span{
+		background-color : black;
+		
+		}
+        .university-badge{
+			background-color: green;
+		}
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--ndejje-blue);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-img img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .skill {
+            background: linear-gradient(135deg, var(--ndejje-blue) 0%, var(--primary) 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .portfolio-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-info {
+            padding: 20px;
+        }
+        
+        .portfolio-info h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Page Styles */
+        .page {
+            display: none;
+            padding: 40px 0;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* University Badge */
+        .university-badge {
+            display: inline-flex;
+            align-items: center;
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 30px;
+            margin-top: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .university-badge img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        /* Hobbies Section */
+        .hobbies-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .hobby-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .hobby-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .hobby-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-laptop-code"></i>
+                <span>JANET</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('about')">About Me</a></li>
+                    <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+                    <li><a href="#" onclick="showPage('gallery')">Gallery</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact Me</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="container">
+                <h1>Hello, I'm JANET</h1>
+                <p>An IT Student at Ndejje University passionate about technology, programming, and creating digital solutions</p>
+                <div class="university-badge">
+                    <i class="fas fa-university"></i>
+                    <span>Ndejje University - Second Year IT Student</span>
+                </div>
+                <br>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- About Me Page -->
+    <div id="about" class="page">
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Me</h2>
+                    <p>Get to know more about my background, skills, and interests</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-img">
+                        <img src="images/pic2.jpg" alt="Alex Johnson">
+                    </div>
+                    
+                    <div class="about-text">
+                        <h3>IT Student at Ndejje University</h3>
+                        <p>Hello! I'm Janet Awujia, a second-year Information Technology student at Ndejje University with a passion for creating innovative tech solutions and user-friendly applications.</p>
+                        <p>I started my IT journey in high school and have since developed a strong foundation in programming, networking, and system administration. My goal is to become a web developer, Network Admin and work on projects that solve real-world problems in my community.</p>
+						<p><b>Once more i want to thank you all for making it to my website,my name is Awujia Janet a student at Ndejje university main campus
+						Luweroo disstrict Ndejje town concil. All along my journey it have been God right from my primary upto my diploma level which am in now.
+						I started my  primary school from kizibu primary school from P.1 class upto P.6,then after due to some changes i finalized my P.7 from Hope
+						nursery and primary school located at Kyankende parish in kiryandongo district.</p><br>
+						<p>After my primary level i went and joined Bulluge comprehesive secondary school where i finished my S.1 from because of fees issues
+						i decided to come near home and i joined Bweyale s.s, where i started well my second level(S.2) to S.3 first term again i changed to
+						Diika seed secondary school where i finished my O-level from.</p><br>
+						<p>By the grace of God my results came out when i passed i stayed  at home for a year after in 2020 i joined Uganda cooperative College
+						Kingumba (UCCK), just not even a month the outbreak of Corona in Uganda struck, it did not take long a lock down was placed mostly in public places
+						and schools where among them we had to go back home. It was such a sad news for me i cried because i had planned my goals and time
+						to achieve them. Corona brought suffering, death and putting things into stand still what kept me moving i had hope knowing that things gonna be well again.
+						Whatever you put in prayers with faith God always do his things unexpectedly.</p><br>
+						<div class ="container">
+						<p>I appreciate God for making a way where there is no way and i got my certificate in 2023 at a field of Cooperatives and business 
+						Administration and people around me my family for unconditionally support, friends holding my back and i personally for being determined 
+						because if i could not be focused i could not make it.</p><br>
+						</div>
+						<p>Further more after my certificate due to financial constraints i remained home praying that one day i would resume my studies and upgrade my
+						my paper in 2024 i did a driving school from Akomak driving school because i really loved seeinng women drive and i myself had the passion and
+						the believe that i can make it like the rest and i took three month and things worked out for me</p><br>
+						<p>In august 2024, that is where a miracle happened and i resumed my studies where currently i am doing Diploma in Information Technology(IT)
+						 computer has been what my heart desired for long even though i did Cooperatives and business Administration, my heart was on Technology
+						 am really great full for whom i am becoming it was and is through patience, enduration, staying focused on what you want being and 
+						 being determined</p><br>
+						 <p>What i can tell my fellows out there always do not loose hope, stay humble, respect your self, parents, elders and even the young learn to have 
+						 people with good motives around the ones who speaks about lighting the world and all in all put everything in prayers God comes in when you
+						 are defeated he knows the right time for everything to happen in your life, do not give up as i waited for long the way was open</p></b>
+											
+                        <h3 style="margin-top: 30px;">I have a number of Skills</h3>
+                        <div class="skills">
+                            <span class="skill">HTML5</span>
+                            <span class="skill">CSS3</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">Java</span>
+                            <span class="skill">MySQL</span>
+                            <span class="skill">Networking</span>
+                            <span class="skill">UI/UX Design</span>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </section>
+    </div>
+
+    <!-- Portfolio Page -->
+    <div id="portfolio" class="page">
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>My Portfolio</h2>
+                    <p>A collection of projects that demonstrate my skills and capabilities</p>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-img">
+                            <img src="images/cisco.png" alt="Finance Dashboard">
+                        </div>
+                        <div class="portfolio-info">
+                            <h3>Cisco networking</h3>
+                            <p>Designing a network logically.</p>
+                        </div>
+                    </div>                  
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery" class="page">
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>My Gallery</h2>
+                    <p>A collection of moments from my university life and projects</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/read.jpg" alt="University Project">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/car.jpg" alt="Coding Session">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/dance.jpg" alt="Team Project">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/africanQueen.jpg" alt="Study Group">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/adventure.jpg" alt="University Event">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="images/pic3.jpg" alt="my photo">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                   
+					
+                </div>
+            </div>
+        </section>
+		<div class="section-title" style="margin-top: 60px;">
+                    <h2>My Hobbies & Interests</h2>
+                    <p>What I enjoy doing in my free time</p>
+                </div>
+                
+                <div class="hobbies-container">
+                    <div class="hobby-card">
+                        <i class="fas fa-car"></i>
+                        <h3>Driving</h3>
+                        <p>I enjoy exploring new places and going on road trips. Driving helps me clear my mind and find inspiration.</p>
+                    </div>
+                    
+                    <div class="hobby-card">
+                        <i class="fas fa-film"></i>
+                        <h3>Watching Movies</h3>
+                        <p>I'm a big fan of Series and Action films. They help me understand different perspectives, cultures and gain defensive skills.</p>
+                    </div>
+                    
+                    <div class="hobby-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Reading</h3>
+                        <p>I love reading tech blogs, Stories, and News Papers.</p>
+                    </div>
+                    
+                    <div class="hobby-card">
+                        <i class="fas fa-music"></i>
+                        <h3>Music</h3>
+                        <p>I enjoy playing Gospel, Western music and Ugandan Music that makes gives comfort.</p>
+                    </div>
+                </div>
+    </div>
+
+    <!-- Contact Me Page -->
+    <div id="contact" class="page">
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Me</h2>
+                    <p>Get in touch with me for collaborations or just to say hello</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Let's Talk</h3>
+                        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                        
+                        <div class="contact-details">
+                            <p><i class="fas fa-map-marker-alt"></i> Ndejje University, Kampala, Uganda</p>
+                            <p><i class="fas fa-phone"></i> +256 777 204 538</p>
+                            <p><i class="fab fa-whatsapp"></i> +256 781 086 853</p>
+                            <p><i class="fas fa-envelope"></i> awujiajanet@gmail.com</p>
+                            <p><i class="fab fa-facebook-f"></i>Younger Queen</p>
+                        </div>
+                        
+                        <h3>Follow Me</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                          <a href="#"><i class="fab fa-github"></i></a>                           
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>IT Student Portfolio</h3>
+                    <p>A showcase of my projects, skills, and experiences as an IT student at Ndejje University.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#" onclick="showPage('home')">Home</a></p>
+                    <p><a href="#" onclick="showPage('about')">About Me</a></p>
+                    <p><a href="#" onclick="showPage('portfolio')">Portfolio/Projects</a></p>
+                    <p><a href="#" onclick="showPage('contact')">Contact</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Ndejje University, Kampala</p>
+                    <p><i class="fas fa-phone"></i> +256 777 204 538</p>
+                    <p><i class="fas fa-envelope"></i> awujiajanet@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Awujia Janet. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to show the selected page and hide others
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            
+            // Show success message (in a real application, you would send the data to a server)
+            alert(`Thank you ${name}! Your message about "${subject}" has been received. I will contact you at ${email} soon.`);
+            
+            // Reset the form
+            document.getElementById('contactForm').reset();
+        });
+        
+        // Mobile menu toggle (for future implementation)
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
